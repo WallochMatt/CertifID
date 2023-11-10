@@ -1,0 +1,71 @@
+﻿trigger:
+  branches:
+    include:
+    - master
+    - main
+
+pool:
+  vmImage: windows-latest
+  
+steps:
+- task: UseDotNet@2
+  displayName: 'Use .Net'
+  inputs:
+    packageType: 'sdk'
+    version: '6.x'
+
+- task: NodeTool@0
+  displayName: 'Install Node'
+  inputs:
+    versionSpec: '16.x'
+
+- script: |
+    cd Frontend
+    npm cache clean --force
+    npm install
+  displayName: 'npm install'
+
+- task: DotNetCoreCLI@2
+  displayName: '.Net Build'
+  inputs:
+    command: 'build'
+    projects: '**/*.csproj'
+    arguments: '--configuration Release'
+
+- task: DotNetCoreCLI@2
+  displayName: '.Net Publish'
+  inputs:
+    command: 'publish'
+    publishWebProjects: false
+    projects: '**/*.csproj'
+    arguments: '-c $(buildConfig) -o $(Build.ArtifactStagingDirectory)'
+
+- task: unzip@0
+  displayName: 'Unzip Artifact'
+  inputs:
+    pathToZipFile: 'D:\a\1\a\s.zip'
+    pathToZipFolder: 'D:\a\1\a\s'
+
+- task: PowerShell@2
+  displayName: 'Copy Files into Unzipped Artifact'
+  inputs:
+    targetType: 'inline'
+    script: |
+      New-Item -ItemType Directory -Path ${env:BUILD_ARTIFACTSTAGINGDIRECTORY}\..\a\s\Frontend -Force | Out-Null
+      Copy-Item -Path "${env:BUILD_ARTIFACTSTAGINGDIRECTORY}\Frontend\*" -Destination ${env:BUILD_ARTIFACTSTAGINGDIRECTORY}\..\a\s\Frontend -Recurse -Force
+
+- task: ArchiveFiles@2
+  displayName: 'Re-zip Artifact'
+  inputs:
+    rootFolderOrFile: 'D:\a\1\a\s'  
+    includeRootFolder: false
+    archiveType: 'zip'
+    archiveFile: 'D:\a\1\a\s.zip'
+    replaceExistingArchive: true
+
+- task: PublishBuildArtifact@1
+  displayName: 'Publish Artifact'
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'FunctionTrigger'
+    publishLocation: 'Container'
