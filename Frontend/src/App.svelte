@@ -26,6 +26,15 @@
     "Admin Settings" : AdminSettingsPage,
   }
 
+  // Users should have a picture property, defaulted to using their initials?
+  let currentUser = {
+        "firstName" : "Matthew",
+        "lastName" : "Walloch",
+        "location" : "South Milwaukee",
+        "group" : 2,
+        "title" : "Software Engineer",
+    }
+
 </script>
 
 
@@ -54,8 +63,8 @@
         <div class="header-across">
           <h2>Manage {selectedManager}</h2>
           <div class="header-id">
-            <p>LastName, FirstName</p>
-            <button class="current-user-pic">FL</button>
+            <p>{currentUser.lastName}, {currentUser.firstName}</p>
+            <button class="current-user-pic">{currentUser.firstName[0]}{currentUser.lastName[0]}</button>
           </div>
         </div>
 

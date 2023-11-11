@@ -93,7 +93,6 @@
         border-collapse: collapse;
         width: 100%;
         color: black;
-        margin: 0 1vw;
     }
 
     div{
