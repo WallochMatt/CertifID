@@ -127,7 +127,7 @@ button:focus-visible {
 
 .manage {
   width : 75%;
-  background-color: #ffffff;
+  background-color: #f3f3f3;
 }
 
 .manage p {
@@ -179,7 +179,7 @@ button:focus-visible {
   width: 2.5vw;
   height: 2.5vw;
   border-radius: 30px;
-  margin-right: 1em;
+  margin-right: 1vw;
 }
 
 /* User Page */
@@ -213,4 +213,10 @@ button:focus-visible {
 .user-name{
   display: flex; 
   align-items: center;
+}
+
+.final-col{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }

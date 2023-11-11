@@ -21,9 +21,43 @@
 </script>
 
 <div>
-    <ul>
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    <input type="checkbox" /> 
+                </th>
+                <th>Users({users.length})</th>
+                <th>Locations()</th>
+                <th>Groups()</th>
+                <th>Title</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {#each users as user}
+                <tr class="listed-user"> 
+                    <td>
+                        <input type="checkbox" />
+                    </td>
+                    <td >
+                        <button class="profile"></button>
+                        <span style="vertical-align: super;">{user.lastName} , {user.firstName}</span>
+                    </td>
+                    <td>{user.location}</td>
+                    <td>{user.group}</td>
+                    <td>{user.title}</td>
+                    <td class="final-col">
+                        <button class="list-more-options">...</button>
+                    </td>
+                </tr>
+            {/each}
+        </tbody>
+    </table>
+    <!-- <ul>
         <li>
-            <input type="checkbox" /> <!--  Ensure this targets the user object -->
+            <input type="checkbox" /> 
             <div class="user-data">
                 <p>Users({users.length})</p>
                 <p>Locations()</p>
@@ -37,7 +71,7 @@
     
         {#each users as user}
             <li class="listed-user"> 
-                <input type="checkbox" /> <!--  Ensure this targets the user object -->
+                <input type="checkbox" />
                 <div class="user-data">
                     <p class="user-name">
                         <button class="profile"></button>
@@ -50,34 +84,35 @@
                 <button class="list-more-options">...</button>
             </li>
         {/each}
-    </ul>
+    </ul> -->
 </div>
 
 <style>
-    div{
-        margin: 0 2vw;
-    }
-
-    ul {
-        list-style: none;
-        padding-inline-start: 0%;
+    table{
+        background-color: #ffffff;
+        border-collapse: collapse;
+        width: 100%;
+        color: black;
         margin: 0 1vw;
     }
 
-    li {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        color: black;
-        height: 8vh;
-        padding: 0 1vw;
+    div{
+        margin: 0 2vw;
     }
     
-    li p{
-        width: 25%;
+    td, th {
+        text-align: left;
+        padding: 1vh 0;
+    }
+
+    th{
+        border: 2px solid #7f7f7f;
+        border-style: none none solid none;
+        padding: 2vh 0;
     }
 
     input{
+        margin: 1em;
         color-scheme: light;
     }
 </style>
