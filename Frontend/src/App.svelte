@@ -64,7 +64,9 @@
           <h2>Manage {selectedManager}</h2>
           <div class="header-id">
             <p>{currentUser.lastName}, {currentUser.firstName}</p>
-            <button class="current-user-pic">{currentUser.firstName[0]}{currentUser.lastName[0]}</button>
+            <button class="current-user-pic">
+              {currentUser.firstName[0]}{currentUser.lastName[0]}
+            </button>
           </div>
         </div>
 
@@ -94,6 +96,5 @@
     color: black;
     padding: 1vh 2vw;
   }
-
 
 </style>

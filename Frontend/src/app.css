@@ -151,9 +151,13 @@ button:focus-visible {
 
 
 .current-user-pic{
+  display: flex;
   border-radius: 100px;
   margin: 0vw 1vw;
-  height: 3vw
+  height: 3vw;
+  width: 3vw;
+  justify-content: center;
+  align-items: center;
 }
 
 .search {
@@ -180,6 +184,9 @@ button:focus-visible {
   height: 2.5vw;
   border-radius: 30px;
   margin-right: 1vw;
+  display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* User Page */
@@ -219,4 +226,15 @@ button:focus-visible {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+}
+
+.flex-center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-td{
+  display: flex;
+  align-items: center;
 }
