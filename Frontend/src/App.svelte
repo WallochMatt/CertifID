@@ -6,6 +6,9 @@
   import GroupsPage from './lib/pages/GroupsPage.svelte';
   import LocationsPage from './lib/pages/LocationsPage.svelte';
   import AdminSettingsPage from './lib/pages/AdminSettingsPage.svelte';
+
+
+  
   
   if(Appsettings.Built)
   {
@@ -22,7 +25,7 @@
   let pages = {
     "Users" : UsersPage,
     "Groups" : GroupsPage,
-    "Locations" : LocationsPage,
+    "Locations & Access Points" : LocationsPage,
     "Admin Settings" : AdminSettingsPage,
   }
 
@@ -69,14 +72,6 @@
             </button>
           </div>
         </div>
-
-        <div class=header-across> <!-- This may need to be instatniated on a page by page basis to create and searc the appropriate items -->
-          <input class="search" placeholder="Search">
-          <div>
-            <button class="more-actions">More Actions...</button>
-            <button class="create-button">Create +</button>
-          </div>
-        </div>
       </header>
 
       <svelte:component this={pages[selectedManager]} slot="slot"/>
@@ -84,7 +79,6 @@
 </main>
 
 <style>
-
   main {
     display: flex;
     flex-direction: row;

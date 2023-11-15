@@ -238,3 +238,25 @@ button:focus-visible {
   display: flex;
   align-items: center;
 }
+
+.modal-div{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.modal-buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-top: 3em;
+}
+
+.modal-buttons .save{
+  background-color: #9c8ecf;
+  color: white;
+}
+.modal-buttons .close{
+  background-color: #e3e3e6;
+  color: black;
+}

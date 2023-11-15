@@ -1,6 +1,9 @@
 <!-- Users need: last name, firstname, location group, title -->
 
 <script>
+    import Modal from "../../Modal.svelte";
+    let showModal = false;
+
     // api call? users will become a request -- title, group and location will likely take a numbered key
     let users = [{
         "firstName" : "Chad",
@@ -9,7 +12,6 @@
         "group" : 1,
         "title" : "Technician",
         "image" : null,
-        "theme" : "blue",
     }, 
     {
         "firstName" : "Chris",
@@ -18,13 +20,22 @@
         "group" : 1,
         "title" : "Software Engineer II",
         "image" : null,
-        "theme" : "pink",
     }
     ];
+
+    let colors = ["red", "blue", "green", "pink"]
     
 </script>
 
-<div>
+<main>
+    <div class=header-across> <!-- This may need to be instatniated on a page by page basis to create and searc the appropriate items -->
+        <input class="search" placeholder="Search">
+        <div>
+            <button class="more-actions">More Actions...</button>
+            <button class="create-button" on:click={() => (showModal = true)}>Create +</button>
+        </div>
+    </div>
+
     <table>
         <thead>
             <tr>
@@ -40,7 +51,7 @@
         </thead>
 
         <tbody>
-            {#each users as user}
+            {#each users as user, index}
                 <tr class="listed-user"> 
                     <td>
                         <input type="checkbox" />
@@ -48,7 +59,7 @@
                     <td style="display: inline-flex;">
 
                         <!-- Come back to this with actual images -->
-                        <button type="button" class="profile" style="background-color: {user.theme}">
+                        <button type="button" class="profile" style="background-color: {colors[index]}">
                             {#if user.image === null}
                                 {user.firstName[0]}{user.lastName[0]}
                             {:else}
@@ -68,20 +79,67 @@
             {/each}
         </tbody>
     </table>
-</div>
+</main>
+
+<Modal bind:showModal>
+    <h2 slot="header">
+        Create New User
+    </h2>
+    <div class="modal-div">
+        <label>
+            Title
+        <input>
+        </label>
+
+        <label>
+        First Name
+        <input>
+        </label>
+        
+        <label>
+        Last Name
+        <input>
+        </label>
+
+        <label>
+        Email Address
+        <input>
+        </label>
+
+        <label>
+        Location(s)
+        <select>
+
+        </select>
+        </label>
+        <small>Create New</small>
+
+        <label>
+        Group(s)
+        <select>
+
+        </select>
+        </label>
+        <small>Create New</small>
+
+    </div>
+
+    
+</Modal>
 
 <style>
+    main{
+        margin: 0 2vw;
+    }
+
     table{
+        margin-top: 1em;
         background-color: #ffffff;
         border-collapse: collapse;
         width: 100%;
         color: black;
     }
 
-    div{
-        margin: 0 2vw;
-    }
-    
     td, th {
         text-align: left;
         padding: 1vh 0;
@@ -95,7 +153,25 @@
     }
 
     input{
-        margin: 1em;
         color-scheme: light;
+        background-color: transparent;
+    }
+
+    label {
+        display: flex;
+        flex-direction: column;
+        padding-top: 1em;
+    }
+
+    small {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        flex-wrap: nowrap;
+    }
+
+    select {
+        width: 100%;
+        background-color: transparent;
     }
 </style>
