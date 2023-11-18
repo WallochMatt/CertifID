@@ -29,14 +29,17 @@
     
 </script>
 
-<Modal bind:showModal>
-    <h2 slot="header">
-        Create New User
-    </h2>
-    <AddUserForm />
-</Modal>
 
 <main>
+    <!-- Use props on the h2 -->
+    <Modal bind:showModal>
+        <h2 slot="header">
+            Create New User
+        </h2>
+        <AddUserForm />
+    </Modal>
+
+
     <div class=header-across> <!-- This may need to be instatniated on a page by page basis to create and searc the appropriate items -->
         <input class="search" placeholder="Search">
         <div>
@@ -45,7 +48,7 @@
         </div>
     </div>
 
-    <table>
+    <table class="data-table">
         <thead>
             <tr>
                 <th>
@@ -90,36 +93,3 @@
     </table>
 </main>
 
-
-
-<style>
-    main{
-        margin: 0 2vw;
-    }
-
-    table{
-        margin-top: 1em;
-        background-color: #ffffff;
-        border-collapse: collapse;
-        width: 100%;
-        color: black;
-    }
-
-    td, th {
-        text-align: left;
-        padding: 1vh 0;
-    }
-
-
-    th{
-        border: 2px solid #7f7f7f;
-        border-style: none none solid none;
-        padding: 2vh 0;
-    }
-
-    input{
-        color-scheme: light;
-        background-color: transparent;
-    }
-
-</style>

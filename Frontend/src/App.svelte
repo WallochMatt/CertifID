@@ -8,8 +8,6 @@
   import AdminSettingsPage from './lib/pages/AdminSettingsPage.svelte';
 
 
-  
-  
   if(Appsettings.Built)
   {
      //Logic for when built by the function app
@@ -41,7 +39,7 @@
 </script>
 
 
-<main>
+<main class="app-main">
   <div class="left-menu">
     <div class="brand">
       <h1>Certif.<span style="color: #9c8ecf;">ID</span></h1>
@@ -62,7 +60,7 @@
   
   
   <div class="manage">
-      <header>
+      <header class="page-legend">
         <div class="header-across">
           <h2>Manage {selectedManager}</h2>
           <div class="header-id">
@@ -78,17 +76,3 @@
   </div>
 </main>
 
-<style>
-  main {
-    display: flex;
-    flex-direction: row;
-    height: 100vh;
-    width: 100vw;
-  }
-
-  header {
-    color: black;
-    padding: 1vh 2vw;
-  }
-
-</style>
