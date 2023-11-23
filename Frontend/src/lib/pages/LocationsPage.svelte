@@ -21,7 +21,7 @@
         </div>
     </div>
 
-    <table>
+    <table class="data-table">
         <thead>
             <tr>
                 <th>
@@ -54,32 +54,3 @@
     </table>
 </main>
 
-<style>
-    table{
-        background-color: #ffffff;
-        border-collapse: collapse;
-        width: 100%;
-        color: black;
-        margin-top: 1em;
-    }
-
-    main{
-        margin: 0 2vw;
-    }
-    
-    td, th {
-        text-align: left;
-        padding: 1vh 0;
-    }
-
-
-    th{
-        border: 2px solid #7f7f7f;
-        border-style: none none solid none;
-        padding: 2vh 0;
-    }
-
-    input{
-        color-scheme: light;
-    }
-</style>

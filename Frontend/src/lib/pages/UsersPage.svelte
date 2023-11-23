@@ -1,8 +1,10 @@
 <!-- Users need: last name, firstname, location group, title -->
 
 <script>
+    import AddUserForm from "../../AddUserForm.svelte";
     import Modal from "../../Modal.svelte";
     let showModal = false;
+
 
     // api call? users will become a request -- title, group and location will likely take a numbered key
     let users = [{
@@ -27,7 +29,17 @@
     
 </script>
 
+
 <main>
+    <!-- Use props on the h2 -->
+    <Modal bind:showModal>
+        <h2 slot="header">
+            Create New User
+        </h2>
+        <AddUserForm />
+    </Modal>
+
+
     <div class=header-across> <!-- This may need to be instatniated on a page by page basis to create and searc the appropriate items -->
         <input class="search" placeholder="Search">
         <div>
@@ -36,11 +48,11 @@
         </div>
     </div>
 
-    <table>
+    <table class="data-table">
         <thead>
             <tr>
                 <th>
-                    <input type="checkbox" /> 
+                    <input type="checkbox" /> <!--bind to all users? -->
                 </th>
                 <th>Users({users.length})</th>
                 <th>Locations()</th>
@@ -54,7 +66,7 @@
             {#each users as user, index}
                 <tr class="listed-user"> 
                     <td>
-                        <input type="checkbox" />
+                        <input type="checkbox" /> <!--bind to user? -->
                     </td>
                     <td style="display: inline-flex;">
 
@@ -81,97 +93,3 @@
     </table>
 </main>
 
-<Modal bind:showModal>
-    <h2 slot="header">
-        Create New User
-    </h2>
-    <div class="modal-div">
-        <label>
-            Title
-        <input>
-        </label>
-
-        <label>
-        First Name
-        <input>
-        </label>
-        
-        <label>
-        Last Name
-        <input>
-        </label>
-
-        <label>
-        Email Address
-        <input>
-        </label>
-
-        <label>
-        Location(s)
-        <select>
-
-        </select>
-        </label>
-        <small>Create New</small>
-
-        <label>
-        Group(s)
-        <select>
-
-        </select>
-        </label>
-        <small>Create New</small>
-
-    </div>
-
-    
-</Modal>
-
-<style>
-    main{
-        margin: 0 2vw;
-    }
-
-    table{
-        margin-top: 1em;
-        background-color: #ffffff;
-        border-collapse: collapse;
-        width: 100%;
-        color: black;
-    }
-
-    td, th {
-        text-align: left;
-        padding: 1vh 0;
-    }
-
-
-    th{
-        border: 2px solid #7f7f7f;
-        border-style: none none solid none;
-        padding: 2vh 0;
-    }
-
-    input{
-        color-scheme: light;
-        background-color: transparent;
-    }
-
-    label {
-        display: flex;
-        flex-direction: column;
-        padding-top: 1em;
-    }
-
-    small {
-        width: 100%;
-        display: flex;
-        justify-content: flex-end;
-        flex-wrap: nowrap;
-    }
-
-    select {
-        width: 100%;
-        background-color: transparent;
-    }
-</style>

@@ -14,6 +14,18 @@
   -webkit-text-size-adjust: 100%;
 }
 
+main{
+  margin: 0 2vw;
+}
+
+.app-main{
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100vw;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -79,7 +91,7 @@ button:focus-visible {
   }
 }
 
-/* Me */
+/* App */
 
 .left-menu {
   width : 25%;
@@ -129,9 +141,17 @@ button:focus-visible {
   width : 75%;
   background-color: #f3f3f3;
 }
-
 .manage p {
   color: black;
+}
+
+
+
+/* All pages */
+
+.page-legend{
+  color: black;
+  padding: 1vh 2vw;
 }
 
 .header-across{
@@ -148,7 +168,6 @@ button:focus-visible {
   justify-content: space-evenly;
   align-items: center;
 }
-
 
 .current-user-pic{
   display: flex;
@@ -188,6 +207,7 @@ button:focus-visible {
     justify-content: center;
     align-items: center;
 }
+
 
 /* User Page */
 
@@ -239,11 +259,75 @@ button:focus-visible {
   align-items: center;
 }
 
-.modal-div{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+/* Tables */
+
+.data-table{
+  background-color: #ffffff;
+  border-collapse: collapse;
+  width: 100%;
+  color: black;
+  margin-top: 1em;
 }
+.data-table td, th {
+  text-align: left;
+  padding: 1vh 0;
+}
+.data-table th{
+  border: 2px solid #7f7f7f;
+  border-style: none none solid none;
+  padding: 2vh 0;
+}
+.data-table input{
+  color-scheme: light;
+}
+
+
+
+
+
+
+
+
+/* Modal */
+
+.create-modal {
+  width: 25%;
+  max-width: 32em;
+  border-radius: 0.2em;
+  border: none;
+  padding: 0;
+  background-color: white;
+  color: black;
+}
+.create-modal::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}
+.create-modal > div {
+  padding: 1em;
+}
+.create-modal[open] {
+  animation: zoom 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@keyframes zoom {
+  from {
+    transform: scale(0.95);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+.create-modal[open]::backdrop {
+  animation: fade 0.2s ease-out;
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 
 .modal-buttons{
   display: flex;
@@ -251,7 +335,6 @@ button:focus-visible {
   justify-content: flex-end;
   margin-top: 3em;
 }
-
 .modal-buttons .save{
   background-color: #9c8ecf;
   color: white;
@@ -259,4 +342,43 @@ button:focus-visible {
 .modal-buttons .close{
   background-color: #e3e3e6;
   color: black;
+}
+.modal-buttons button {
+  display: block;
+  margin-left: 2em;
+}
+
+
+/* Forms */
+
+.add-form{
+  margin: 0 2vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.add-form label {
+  display: flex;
+  flex-direction: column;
+  padding-top: 1em;
+}
+
+.add-form input{
+color-scheme: light;
+background-color: transparent;
+}
+
+.add-form select, option {
+color: black;
+}
+
+.add-form select {
+width: 100%;
+background-color: transparent;
+}
+.add-form small {
+width: 100%;
+display: flex;
+justify-content: flex-end;
+flex-wrap: nowrap;
 }
