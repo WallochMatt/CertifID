@@ -1,5 +1,6 @@
 <script>
     import Modal from "../../Modal.svelte";
+  import AddGroupForm from "../forms/AddGroupForm.svelte";
     let showModal = false;
 
     let groups = [{
@@ -12,6 +13,10 @@
 </script>
 
 <main>
+    <Modal entity={"Group"} bind:showModal >
+        <AddGroupForm/>
+    </Modal>
+
     <div class=header-across> <!-- This may need to be instatniated on a page by page basis to create and searc the appropriate items -->
         <input class="search" placeholder="Search">
         <div>

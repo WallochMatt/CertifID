@@ -1,7 +1,7 @@
 <!-- Users need: last name, firstname, location group, title -->
 
 <script>
-    import AddUserForm from "../../AddUserForm.svelte";
+    import AddUserForm from "../forms/AddUserForm.svelte";
     import Modal from "../../Modal.svelte";
     let showModal = false;
 
@@ -25,20 +25,22 @@
     }
     ];
 
-    let colors = ["red", "blue", "green", "pink"]
+    let colors = ["red", "blue", "green", "pink"];
+
+    function closeModal(){
+		showModal = false;
+	}
+
     
 </script>
 
 
 <main>
-    <!-- Use props on the h2 -->
-    <Modal bind:showModal>
-        <h2 slot="header">
-            Create New User
-        </h2>
-        <AddUserForm />
+    <Modal entity={"User"} bind:showModal > 
+        <!-- Props from Add? Add > USERPAGE > MODAL? -->
+        <AddUserForm slot="form" {closeModal} />
+        
     </Modal>
-
 
     <div class=header-across> <!-- This may need to be instatniated on a page by page basis to create and searc the appropriate items -->
         <input class="search" placeholder="Search">

@@ -1,5 +1,6 @@
 <script>
     import Modal from "../../Modal.svelte";
+  import AddLocationForm from "../forms/AddLocationForm.svelte";
     let showModal = false;
     // api call? users will become a request -- title, group and location will likely take a numbered key
     let locations = [{
@@ -13,6 +14,11 @@
 </script>
 
 <main>
+    
+    <Modal entity={"Location"} bind:showModal >
+        <AddLocationForm />
+    </Modal>
+
     <div class=header-across> <!-- This may need to be instatniated on a page by page basis to create and searc the appropriate items -->
         <input class="search" placeholder="Search">
         <div>
