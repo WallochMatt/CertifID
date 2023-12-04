@@ -1,32 +1,16 @@
 <script>
-    import Modal from "../../Modal.svelte";
-  import AddLocationForm from "../forms/AddLocationForm.svelte";
-    let showModal = false;
     // api call? users will become a request -- title, group and location will likely take a numbered key
     let locations = [{
         "city" : "Milwaukee",
         "state" : "WI",
         "address" : " 777 E Wisconsin Ave, Milwauke, WI 53202",
         "associatedGroup" : "Multiple(PlaceHold)",
-        "accessPoints" : 5,
+        "accessPoints" : 5, //list of Entrance objects, has 1 associateGroup
     }, 
     ];
 </script>
 
 <main>
-    
-    <Modal entity={"Location"} bind:showModal >
-        <AddLocationForm />
-    </Modal>
-
-    <div class=header-across> <!-- This may need to be instatniated on a page by page basis to create and searc the appropriate items -->
-        <input class="search" placeholder="Search">
-        <div>
-            <button class="more-actions">More Actions...</button>
-            <button class="create-button" on:click={() => (showModal = true)}>Create +</button>
-        </div>
-    </div>
-
     <table class="data-table">
         <thead>
             <tr>

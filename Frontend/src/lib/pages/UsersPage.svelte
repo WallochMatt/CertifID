@@ -1,10 +1,7 @@
 <!-- Users need: last name, firstname, location group, title -->
 
 <script>
-    import AddUserForm from "../forms/AddUserForm.svelte";
-    import Modal from "../../Modal.svelte";
-    let showModal = false;
-
+    import ContextMenu from "../../ContextMenu.svelte";
 
     // api call? users will become a request -- title, group and location will likely take a numbered key
     let users = [{
@@ -27,28 +24,11 @@
 
     let colors = ["red", "blue", "green", "pink"];
 
-    function closeModal(){
-		showModal = false;
-	}
-
-    
 </script>
 
 
 <main>
-    <Modal entity={"User"} bind:showModal > 
-        <!-- Props from Add? Add > USERPAGE > MODAL? -->
-        <AddUserForm slot="form" {closeModal} />
-        
-    </Modal>
-
-    <div class=header-across> <!-- This may need to be instatniated on a page by page basis to create and searc the appropriate items -->
-        <input class="search" placeholder="Search">
-        <div>
-            <button class="more-actions">More Actions...</button>
-            <button class="create-button" on:click={() => (showModal = true)}>Create +</button>
-        </div>
-    </div>
+    <ContextMenu />
 
     <table class="data-table">
         <thead>

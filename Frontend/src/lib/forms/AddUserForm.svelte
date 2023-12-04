@@ -1,7 +1,12 @@
 <script>
-    export let closeModal;
+    export let closeModal; //to UserPage
 
-
+    function handleSubmit() {
+        console.log("Submitted");
+        alert("Form saved!");
+        // This would make the post request
+        closeModal();
+    }
 
     let title;
     let firstName;
@@ -10,20 +15,10 @@
 
     let location = [];
     let group = [];
-
-    
-
-    export function handleSubmit() {
-        console.log("Submitted");
-        alert("Form saved!");
-        // This would make the post request
-    }
-
-
 </script>
 
 <!-- on:submit|preventDefault={handleSubmit} -->
-<form action="" method="POST"  class="add-form"><!--  prevent default is used to stop the page from refresh -->
+<form action="" method="POST"  class="add-form" on:submit|preventDefault={handleSubmit}><!--  prevent default is used to stop the page from refresh -->
     <label>
         Title
         <input type="text" placeholder="" bind:value={title}>
@@ -68,8 +63,8 @@
     <div class="modal-buttons">
         <!-- svelte-ignore a11y-autofocus -->
         <button class="close" autofocus on:click={closeModal}>Close</button>
-
-        <button class="save" type="submit">Outside Save</button> 
+        <!-- svelte-ignore a11y-autofocus -->
+        <button class="save" on:click={handleSubmit}>Save (AddUser)</button> 
     </div>
 </form>
 
