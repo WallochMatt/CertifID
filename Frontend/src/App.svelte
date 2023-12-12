@@ -5,18 +5,22 @@
   import LocationsPage from './lib/pages/LocationsPage.svelte';
   import AdminSettingsPage from './lib/pages/AdminSettingsPage.svelte';
   import PageHeader from './lib/PageHeader.svelte';
+  import Modal from './Modal.svelte';
 
   if(Appsettings.Built)
   {
-     //Logic for when built by the function app
+    //Logic for when built by the function app
   }
-
+  
   let selectedManager = 'Users';
-
+  
   function changeManager(selected){
     console.log("selected is: ", selected)
     selectedManager = selected;
-  }
+  };
+  
+  let showModal = false;
+
 
   // The selected manager acts as a key select for the pages, ex pages["Users"] instatntiates UsersPage
   let pages = {
@@ -24,7 +28,8 @@
     "Groups" : GroupsPage,
     "Locations & Access Points" : LocationsPage,
     "Admin Settings" : AdminSettingsPage,
-  }
+  };
+
 
   // Users should have a picture property, defaulted to using their initials?
   let currentUser = {
@@ -33,8 +38,7 @@
         "location" : "South Milwaukee",
         "group" : 2,
         "title" : "Software Engineer",
-    }
-
+    };
 </script>
 
 
@@ -60,7 +64,13 @@
   
   <!-- RIGHT MAIN PAGE -->
   <div class="manage">
-      <PageHeader pages={pages} selectedManager={selectedManager} currentUser={currentUser} />
+      <PageHeader bind:showModal={showModal} selectedManager={selectedManager} currentUser={currentUser} />
+
+      <svelte:component this={pages[selectedManager]} />
+
+      <Modal bind:showModal={showModal} selectedManager={selectedManager}> 
+
+      </Modal>
   </div>
 </main>
 

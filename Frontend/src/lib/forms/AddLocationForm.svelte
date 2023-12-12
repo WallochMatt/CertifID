@@ -1,4 +1,6 @@
 <script>
+    export const header = 'Create a New Location or Access Point';
+
     let location;
     let address;
     let associatedGroup;
@@ -6,10 +8,10 @@
 
     const handleSubmit = () => {
         console.log("Submitted")
-    }
+    };
 </script>
 
-<form on:submit|preventDefault={handleSubmit} class="add-form"><!--  prevent default is used to stop the page from refresh -->
+<form action="" method="POST" on:submit|preventDefault={handleSubmit} class="add-form"><!--  prevent default is used to stop the page from refresh -->
     <label>
         Location
         <input type="text" placeholder="" bind:value={location}>

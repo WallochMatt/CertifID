@@ -1,8 +1,6 @@
 <!-- Users need: last name, firstname, location group, title -->
 
 <script>
-    import ContextMenu from "../../ContextMenu.svelte";
-
     // api call? users will become a request -- title, group and location will likely take a numbered key
     let users = [{
         "firstName" : "Chad",
@@ -24,11 +22,25 @@
 
     let colors = ["red", "blue", "green", "pink"];
 
+    (function() {
+        "use strict";
+        var tableItems = document.querySelectorAll(".task");
+        for ( var i = 0, len = tableItems.length; i < length; i++) {
+            var tableItem = tableItem[i];
+            contextMenuListener(tableItem);
+        }
+
+        function contextMenuListener(el) {
+        el.addEventListener( "contextmenu", function(e) {
+            console.log(e, el);
+        });
+    }
+    })();
 </script>
 
 
 <main>
-    <ContextMenu />
+
 
     <table class="data-table">
         <thead>
@@ -46,6 +58,7 @@
 
         <tbody>
             {#each users as user, index}
+
                 <tr class="listed-user"> 
                     <td>
                         <input type="checkbox" /> <!--bind to user? -->

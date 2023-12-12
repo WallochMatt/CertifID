@@ -1,9 +1,22 @@
 <script>
-	export let entity //to UserPage
-	export let showModal = false; //to UserPage
+	import AddGroupForm from "./lib/forms/AddGroupForm.svelte";
+	import AddLocationForm from "./lib/forms/AddLocationForm.svelte";
+	import AddUserForm from './lib/forms/AddUserForm.svelte';
+
+	export let showModal = false; 
+	export let selectedManager;
+
 
 	let dialog; // HTMLDialogElement
 	$: if (dialog && showModal) dialog.showModal();
+
+	let currentHeader;
+	
+	let forms = {
+		"Users" : AddUserForm,  
+		"Groups" : AddGroupForm,
+		"Locations & Access Points" : AddLocationForm
+	};
 </script>
 
 
@@ -22,16 +35,17 @@
 			</div>
 			<div>
 				<h2>
-					<!-- The slice is to remove the S on a given entity. Seek better solution, 
-						it's especially awkward for "Create New Locations & Access Point" -->
-					Create New {entity.slice(0, -1)}
+					{currentHeader}
 					<hr />
 				</h2>
-				<slot name="form" />
+				<!-- Add more to the forms in order to inject anything into a modal-->
+				<svelte:component this={forms[selectedManager]} bind:header={currentHeader}/>
 			</div>
 		</div>
 	</dialog>
 {/if}
+
+
 
 <style>
 	dialog {

@@ -21,23 +21,8 @@
             x: e.clientX,
             y: e.clientY
         };
-
-
-        // console.log("x: ", position.x );
-        // console.log("y: ", position.y, );
-
-        // if (browser.w -  position.x < menu.w) {}
-        //     position.x = position.x - menu.w
-        // }
-        // if (browser.h -  position.y < menu.h) {
-        //     position.y = position.y - menu.h
-
-
-
     }
 
-        console.log("w: ", menu.w );
-        console.log("h: ", menu.h, );
 
     function offMenuClick(e){
         showMenu  = false;
@@ -85,10 +70,7 @@
             'icon': 'font awesome'
         },
     ]
-
 </script>
-
-
 
 
 <style>

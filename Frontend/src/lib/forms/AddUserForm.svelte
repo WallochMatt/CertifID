@@ -1,5 +1,7 @@
 <script>
-    export let closeModal; //to UserPage
+    export const header = 'Create a New User';
+    export let closeModal; 
+
 
     function handleSubmit() {
         console.log("Submitted");
@@ -17,8 +19,8 @@
     let group = [];
 </script>
 
-<!-- on:submit|preventDefault={handleSubmit} -->
-<form action="" method="POST"  class="add-form" on:submit|preventDefault={handleSubmit}><!--  prevent default is used to stop the page from refresh -->
+
+<form action="" method="POST" on:submit|preventDefault={handleSubmit} class="add-form" ><!--  prevent default is used to stop the page from refresh -->
     <label>
         Title
         <input type="text" placeholder="" bind:value={title}>
@@ -59,12 +61,11 @@
     </label>
     <small>Create New</small>
 
-    <!-- <button type="submit">SAVE INSIDE</button> -->
     <div class="modal-buttons">
         <!-- svelte-ignore a11y-autofocus -->
         <button class="close" autofocus on:click={closeModal}>Close</button>
         <!-- svelte-ignore a11y-autofocus -->
-        <button class="save" on:click={handleSubmit}>Save (AddUser)</button> 
+        <button class="save" on:click={handleSubmit}>Save</button> 
     </div>
 </form>
 
