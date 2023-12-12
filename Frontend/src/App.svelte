@@ -1,12 +1,10 @@
 <script lang="ts">
-  import Counter from './lib/Counter.svelte'
   import { Appsettings } from '../Appsettings'
-  import Routing from './lib/Routing.svelte';
   import UsersPage from './lib/pages/UsersPage.svelte';
   import GroupsPage from './lib/pages/GroupsPage.svelte';
   import LocationsPage from './lib/pages/LocationsPage.svelte';
   import AdminSettingsPage from './lib/pages/AdminSettingsPage.svelte';
-
+  import PageHeader from './lib/PageHeader.svelte';
 
   if(Appsettings.Built)
   {
@@ -20,6 +18,7 @@
     selectedManager = selected;
   }
 
+  // The selected manager acts as a key select for the pages, ex pages["Users"] instatntiates UsersPage
   let pages = {
     "Users" : UsersPage,
     "Groups" : GroupsPage,
@@ -40,11 +39,12 @@
 
 
 <main class="app-main">
+
+  <!-- SIDE MENU -->
   <div class="left-menu">
     <div class="brand">
       <h1>Certif.<span style="color: #9c8ecf;">ID</span></h1>
       <h2>Badging System</h2>
-
       <nav class="menu-options">
         {#each Object.keys(pages) as page}
           <button on:click={() => changeManager(page)}>{page}</button>
@@ -52,27 +52,15 @@
       </nav>
     </div>
 
-
     <div>
       <p>Matt Walloch</p>
     </div>
   </div>
   
   
+  <!-- RIGHT MAIN PAGE -->
   <div class="manage">
-      <header class="page-legend">
-        <div class="header-across">
-          <h2>Manage {selectedManager}</h2>
-          <div class="header-id">
-            <p>{currentUser.lastName}, {currentUser.firstName}</p>
-            <button class="current-user-pic">
-              {currentUser.firstName[0]}{currentUser.lastName[0]}
-            </button>
-          </div>
-        </div>
-      </header>
-
-      <svelte:component this={pages[selectedManager]} slot="slot"/>
+      <PageHeader pages={pages} selectedManager={selectedManager} currentUser={currentUser} />
   </div>
 </main>
 

@@ -162,6 +162,10 @@ button:focus-visible {
     margin: 0;
 }
 
+.header-above{
+  margin-bottom: 1.5em;
+}
+
 .header-id{
   display: flex;
   flex-direction: row;
@@ -172,7 +176,7 @@ button:focus-visible {
 .current-user-pic{
   display: flex;
   border-radius: 100px;
-  margin: 0vw 1vw;
+  margin-left: 1vw;
   height: 3vw;
   width: 3vw;
   justify-content: center;
@@ -290,45 +294,6 @@ button:focus-visible {
 
 /* Modal */
 
-.create-modal {
-  width: 25%;
-  max-width: 32em;
-  border-radius: 0.2em;
-  border: none;
-  padding: 0;
-  background-color: white;
-  color: black;
-}
-.create-modal::backdrop {
-  background: rgba(0, 0, 0, 0.5);
-}
-.create-modal > div {
-  padding: 1em;
-}
-.create-modal[open] {
-  animation: zoom 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-@keyframes zoom {
-  from {
-    transform: scale(0.95);
-  }
-  to {
-    transform: scale(1);
-  }
-}
-.create-modal[open]::backdrop {
-  animation: fade 0.2s ease-out;
-}
-@keyframes fade {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-
 .modal-buttons{
   display: flex;
   flex-direction: row;
@@ -346,6 +311,11 @@ button:focus-visible {
 .modal-buttons button {
   display: block;
   margin-left: 2em;
+}
+
+.modal-x{
+  display: flex;
+  justify-content: flex-end;
 }
 
 
