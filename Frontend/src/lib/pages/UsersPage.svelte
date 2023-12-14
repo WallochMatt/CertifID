@@ -1,6 +1,8 @@
 <!-- Users need: last name, firstname, location group, title -->
 
 <script>
+    import ContextMenu from "../../ContextMenu.svelte";
+
     // api call? users will become a request -- title, group and location will likely take a numbered key
     let users = [{
         "firstName" : "Chad",
@@ -21,27 +23,26 @@
     ];
 
     let colors = ["red", "blue", "green", "pink"];
+    // ^Placeholder data to be changed with backend
 
-    (function() {
-        "use strict";
-        var tableItems = document.querySelectorAll(".task");
-        for ( var i = 0, len = tableItems.length; i < length; i++) {
-            var tableItem = tableItem[i];
-            contextMenuListener(tableItem);
-        }
 
-        function contextMenuListener(el) {
-        el.addEventListener( "contextmenu", function(e) {
-            console.log(e, el);
-        });
-    }
-    })();
+    let contextMenuX = 0;
+    let contextMenuY = 0;
+    let isContextMenuVisible = false;
+    let selectedItem;
+
+    function handleRightClick(event, item) {
+        event.preventDefault();
+        contextMenuX = event.clientX;
+        contextMenuY = event.clientY;
+        selectedItem = item;
+        isContextMenuVisible = true;
+    };
+
 </script>
 
 
 <main>
-
-
     <table class="data-table">
         <thead>
             <tr>
@@ -58,8 +59,7 @@
 
         <tbody>
             {#each users as user, index}
-
-                <tr class="listed-user"> 
+                <tr class="listed-user" on:contextmenu={(event) => handleRightClick(event, user)}> 
                     <td>
                         <input type="checkbox" /> <!--bind to user? -->
                     </td>
@@ -84,7 +84,11 @@
                     </td>
                 </tr>
             {/each}
+            {#if isContextMenuVisible}
+                <ContextMenu bind:isVisible={isContextMenuVisible} x={contextMenuX} y={contextMenuY} item={selectedItem} />
+            {/if}
         </tbody>
     </table>
 </main>
+
 
