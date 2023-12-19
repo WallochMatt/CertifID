@@ -1,4 +1,8 @@
 <script>
+    import PageHeader from "../PageHeader.svelte";
+
+    export let showModal = false;
+
     // api call? users will become a request -- title, group and location will likely take a numbered key
     let locations = [{
         "city" : "Milwaukee",
@@ -11,6 +15,8 @@
 </script>
 
 <main>
+    <PageHeader bind:showModal = {showModal} currentPage = {"Locations & Access Points"}/>
+    
     <table class="data-table">
         <thead>
             <tr>
@@ -43,4 +49,3 @@
         </tbody>
     </table>
 </main>
-

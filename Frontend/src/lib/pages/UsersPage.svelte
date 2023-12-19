@@ -1,6 +1,10 @@
 <!-- Users need: last name, firstname, location group, title -->
 
 <script>
+    import PageHeader from "../PageHeader.svelte";
+
+    export let showModal = false;
+
     // api call? users will become a request -- title, group and location will likely take a numbered key
     let users = [{
         "firstName" : "Chad",
@@ -40,7 +44,7 @@
 
 
 <main>
-
+    <PageHeader bind:showModal = {showModal} currentPage = {"Users"}/>
 
     <table class="data-table">
         <thead>

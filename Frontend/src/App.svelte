@@ -4,14 +4,15 @@
   import GroupsPage from './lib/pages/GroupsPage.svelte';
   import LocationsPage from './lib/pages/LocationsPage.svelte';
   import AdminSettingsPage from './lib/pages/AdminSettingsPage.svelte';
-  import PageHeader from './lib/PageHeader.svelte';
-  import Modal from './Modal.svelte';
+
 
   if(Appsettings.Built)
   {
     //Logic for when built by the function app
-  }
+  };
+
   
+  // The selected manager acts as a key select for the pages, ex pages["Users"] instatntiates UsersPage
   let selectedManager = 'Users';
   
   function changeManager(selected){
@@ -19,10 +20,6 @@
     selectedManager = selected;
   };
   
-  let showModal = false;
-
-
-  // The selected manager acts as a key select for the pages, ex pages["Users"] instatntiates UsersPage
   let pages = {
     "Users" : UsersPage,
     "Groups" : GroupsPage,
@@ -64,13 +61,7 @@
   
   <!-- RIGHT MAIN PAGE -->
   <div class="manage">
-      <PageHeader bind:showModal={showModal} selectedManager={selectedManager} currentUser={currentUser} />
-
       <svelte:component this={pages[selectedManager]} />
-
-      <Modal bind:showModal={showModal} selectedManager={selectedManager}> 
-
-      </Modal>
   </div>
 </main>
 

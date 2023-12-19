@@ -1,19 +1,29 @@
 <script>
-    export let selectedManager;
-    export let currentUser;
-    export let showModal;
+    import Modal from "../Modal.svelte";
+
+    export let currentPage;
+    export let showModal; 
+
+    let selectedContent;
+
+    export function handleCreate(newContent){
+        selectedContent = newContent;
+        showModal = true;
+
+        console.log("new selectedContent: ", selectedContent)
+    }
 </script>
 
 
 <header class="page-legend">
     <div class="header-across header-above">
-        <h2>Manage {selectedManager}</h2>
-        <div class="header-id">
+        <h2>Manage {currentPage}</h2>
+        <!-- <div class="header-id">
             <p>{currentUser.lastName}, {currentUser.firstName}</p>
             <button class="current-user-pic">
                 {currentUser.firstName[0]}{currentUser.lastName[0]}
             </button>
-        </div>
+        </div> -->
     </div>
     
     <div class=header-across>
@@ -24,4 +34,6 @@
         </div>
     </div>
 </header>
+
+<Modal bind:showModal={showModal} selectedContent={currentPage}/>
 

@@ -1,3 +1,4 @@
+/* Universal */
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -52,12 +53,6 @@ h1 {
   padding: 2em;
 }
 
-/* #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-} */
 
 button {
   border-radius: 8px;
@@ -91,8 +86,13 @@ button:focus-visible {
   }
 }
 
-/* App */
+.required-field::after {
+  content: " *";
+  color: red;
+  display: inline;
+}
 
+/* App */
 .left-menu {
   width : 25%;
   display : flex;
@@ -305,12 +305,15 @@ button:focus-visible {
   color: white;
 }
 .modal-buttons .close{
-  background-color: #e3e3e6;
+  background-color:  #d5d5d5;
   color: black;
 }
 .modal-buttons button {
-  display: block;
-  margin-left: 2em;
+  height: 4vh;
+  margin-left: 1vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .modal-x{

@@ -1,22 +1,23 @@
 <script>
 	import AddGroupForm from "./lib/forms/AddGroupForm.svelte";
 	import AddLocationForm from "./lib/forms/AddLocationForm.svelte";
-	import AddUserForm from './lib/forms/AddUserForm.svelte';
-
-	export let showModal = false; 
-	export let selectedManager;
+	import AddUserForm from "./lib/forms/AddUserForm.svelte";
 
 
 	let dialog; // HTMLDialogElement
 	$: if (dialog && showModal) dialog.showModal();
 
-	let currentHeader;
-	
-	let forms = {
-		"Users" : AddUserForm,  
-		"Groups" : AddGroupForm,
-		"Locations & Access Points" : AddLocationForm
-	};
+
+	  //Modal
+	export let showModal = false;
+	export let selectedContent = "";
+
+	let modalContent = {
+			"Users" : AddUserForm,  
+			"Groups" : AddGroupForm,
+			"Locations & Access Points" : AddLocationForm
+		};
+
 </script>
 
 
@@ -33,14 +34,10 @@
 			<div class="modal-x">
 				<button on:click={() => (showModal = false)}> X </button>
 			</div>
-			<div>
-				<h2>
-					{currentHeader}
-					<hr />
-				</h2>
-				<!-- Add more to the forms in order to inject anything into a modal-->
-				<svelte:component this={forms[selectedManager]} bind:header={currentHeader}/>
-			</div>
+
+			<!-- !Slot in the content for the modal!-->
+			<svelte:component this={modalContent[selectedContent]}/>
+			
 		</div>
 	</dialog>
 {/if}
@@ -88,5 +85,10 @@
 		to {
 			opacity: 1;
 		}
+	}
+
+	button {
+		background-color: transparent;
+    	color: #929292;
 	}
 </style>
