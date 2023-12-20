@@ -6,11 +6,13 @@
     export let isVisible = false;
     export let item;
 
-    let editItem = () => alert(`Edit ${item.firstName}`);
+    let editItem = () => alert(`Edit: ${Object.values(item)[0]}`);
     
-    let dupeItem = () => alert(`Duplicate ${item.firstName}`);
+    let dupeItem = () => alert(`Duplicate: ${Object.values(item)[0]}`);
     
-    let removeItem = () => alert(`Removed ${item.firstName}`);
+    let removeItem = () => alert(`Removed: ${Object.values(item)[0]}`);
+    // Note: These functions will need to change backend data, these alerts are 
+    //just to show what the on-screen messages may look like/show some effect
 
     let menuItems = [
         {

@@ -38,7 +38,6 @@
         selectedItem = item;
         isContextMenuVisible = true;
     };
-
 </script>
 
 
@@ -59,7 +58,7 @@
 
         <tbody>
             {#each users as user, index}
-                <tr class="listed-user" on:contextmenu={(event) => handleRightClick(event, user)}> 
+                <tr class="listed-item" on:contextmenu={(event) => handleRightClick(event, user)}> 
                     <td>
                         <input type="checkbox" /> <!--bind to user? -->
                     </td>
