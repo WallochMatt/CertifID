@@ -1,9 +1,12 @@
 <!-- Users need: last name, firstname, location group, title -->
 
 <script>
+    import Modal from "../../Modal.svelte";
+    export let showModal; 
+
+
     import PageHeader from "../PageHeader.svelte";
 
-    export let showModal = false;
 
     // api call? users will become a request -- title, group and location will likely take a numbered key
     let users = [{
@@ -44,7 +47,7 @@
 
 
 <main>
-    <PageHeader bind:showModal = {showModal} currentPage = {"Users"}/>
+    <PageHeader currentPage = {"Users"}/>
 
     <table class="data-table">
         <thead>
@@ -92,3 +95,9 @@
     </table>
 </main>
 
+
+<!-- Below is an example that a modal can also be on a page, this will be kept for some time to reference later -->
+<!-- Additionally, this does not currently support multiple modals for one page. Consider a selection function of sorts to do so -->
+
+<!-- <button on:click={() => showModal = true} ></button>
+<Modal selectedContent={"Groups"} bind:showModal={showModal} /> -->

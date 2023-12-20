@@ -2,16 +2,16 @@
     import Modal from "../Modal.svelte";
 
     export let currentPage;
-    export let showModal; 
+    let showModal; 
 
     let selectedContent;
 
-    export function handleCreate(newContent){
-        selectedContent = newContent;
-        showModal = true;
+    // export function handleCreate(newContent){
+    //     selectedContent = newContent;
+    //     showModal = true;
 
-        console.log("new selectedContent: ", selectedContent)
-    }
+    //     console.log("new selectedContent: ", selectedContent)
+    // }
 </script>
 
 

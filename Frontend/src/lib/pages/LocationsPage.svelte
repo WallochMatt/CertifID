@@ -15,7 +15,7 @@
 </script>
 
 <main>
-    <PageHeader bind:showModal = {showModal} currentPage = {"Locations & Access Points"}/>
+    <PageHeader currentPage = {"Locations & Access Points"}/>
     
     <table class="data-table">
         <thead>

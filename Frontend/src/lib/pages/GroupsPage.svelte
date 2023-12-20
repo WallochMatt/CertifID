@@ -13,7 +13,7 @@
 </script>
 
 <main>
-    <PageHeader bind:showModal = {showModal} currentPage = {"Groups"}/>
+    <PageHeader currentPage = {"Groups"}/>
 
     <table class="data-table">
         <thead>
