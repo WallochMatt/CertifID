@@ -1,5 +1,8 @@
 <script>
     import ContextMenu from "../../ContextMenu.svelte";
+    import PageHeader from "../PageHeader.svelte";
+
+    export let showModal = false;
 
     // api call? users will become a request -- title, group and location will likely take a numbered key
     let locations = [{
@@ -30,6 +33,8 @@
 </script>
 
 <main>
+    <PageHeader currentPage = {"Locations & Access Points"}/>
+    
     <table class="data-table">
         <thead>
             <tr>
@@ -65,4 +70,3 @@
         </tbody>
     </table>
 </main>
-

@@ -1,5 +1,9 @@
 <script>
+    import PageHeader from "../PageHeader.svelte";
     import ContextMenu from "../../ContextMenu.svelte";
+
+    export let showModal = false;
+
 
     let groups = [{
         "name" : "Web Application Team",
@@ -24,6 +28,8 @@
 </script>
 
 <main>
+    <PageHeader currentPage = {"Groups"}/>
+
     <table class="data-table">
         <thead>
             <tr>

@@ -3,6 +3,13 @@
 <script>
     import ContextMenu from "../../ContextMenu.svelte";
 
+    import Modal from "../../Modal.svelte";
+    export let showModal; 
+
+
+    import PageHeader from "../PageHeader.svelte";
+
+
     // api call? users will become a request -- title, group and location will likely take a numbered key
     let users = [{
         "firstName" : "Chad",
@@ -42,6 +49,8 @@
 
 
 <main>
+    <PageHeader currentPage = {"Users"}/>
+
     <table class="data-table">
         <thead>
             <tr>
