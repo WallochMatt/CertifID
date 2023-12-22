@@ -1,4 +1,5 @@
 <script>
+    import ContextMenu from "../../ContextMenu.svelte";
     import PageHeader from "../PageHeader.svelte";
 
     export let showModal = false;
@@ -12,6 +13,23 @@
         "accessPoints" : 5, //list of Entrance objects, has 1 associateGroup
     }, 
     ];
+
+    let colors = ["red", "blue", "green", "pink"];
+    // ^Placeholder data to be changed with backend
+
+
+    let contextMenuX = 0;
+    let contextMenuY = 0;
+    let isContextMenuVisible = false;
+    let selectedItem;
+
+    function handleRightClick(event, item) {
+        event.preventDefault();
+        contextMenuX = event.clientX;
+        contextMenuY = event.clientY;
+        selectedItem = item;
+        isContextMenuVisible = true;
+    };
 </script>
 
 <main>
@@ -33,7 +51,7 @@
 
         <tbody>
             {#each locations as location, index}
-                <tr> 
+                <tr class="listed-item" on:contextmenu={(event) => handleRightClick(event, location)}> 
                     <td>
                         <input type="checkbox" />
                     </td>
@@ -46,6 +64,9 @@
                     </td>
                 </tr>
             {/each}
+            {#if isContextMenuVisible}
+                <ContextMenu bind:isVisible={isContextMenuVisible} x={contextMenuX} y={contextMenuY} item={selectedItem} />
+            {/if}
         </tbody>
     </table>
 </main>

@@ -145,7 +145,6 @@ button:hover {
 
 
 /* All pages */
-
 .page-legend{
   color: black;
   padding: 1vh 2vw;
@@ -205,13 +204,12 @@ button:hover {
   border-radius: 30px;
   margin-right: 1vw;
   display: flex;
-    justify-content: center;
-    align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 
 /* User Page */
-
 .list-more-options{
   height: 2vw;
   width: 1vw;
@@ -227,7 +225,7 @@ button:hover {
   padding: 1vw;
 }
 
-.listed-user:hover{
+.listed-item:hover{
   background-color: #d1d1d1;
 }
 
@@ -261,7 +259,6 @@ button:hover {
 }
 
 /* Tables */
-
 .data-table{
   background-color: #ffffff;
   border-collapse: collapse;
@@ -346,6 +343,32 @@ width: 100%;
 display: flex;
 justify-content: flex-end;
 flex-wrap: nowrap;
+}
+
+
+
+/* ContextMenu */
+.context-menu {
+  position: fixed; 
+}
+
+.context-nav{
+  border: 1px #999 solid;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  list-style-type: none;
+}
+.context-nav ul{
+  margin: 6px;
+  padding-inline-start: 0px;
+  display: flex;
+  flex-direction: column;
+}
+.context-nav button {
+  color: black;
+  background-color: white;
+  width: 100%;
 }
 
 .create-new, .create-new:active, .create-new:focus{

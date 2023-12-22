@@ -14,6 +14,7 @@
   
   // The selected manager acts as a key select for the pages, ex pages["Users"] instatntiates UsersPage
   let selectedManager = 'Users';
+  let showModal = false;
   
   function changeManager(selected){
     console.log("selected is: ", selected)
