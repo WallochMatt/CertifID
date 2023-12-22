@@ -17,7 +17,6 @@
     <form action="" method="POST" on:submit|preventDefault={handleSubmit} class="add-form"><!--  prevent default is used to stop the page from refresh -->
         <p class="required-field">Group Name</p>
         <input type="text" placeholder="" bind:value={groupName}>
-
     </form>
 </div>
 

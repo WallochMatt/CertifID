@@ -5,13 +5,6 @@
     let showModal; 
 
     let selectedContent;
-
-    // export function handleCreate(newContent){
-    //     selectedContent = newContent;
-    //     showModal = true;
-
-    //     console.log("new selectedContent: ", selectedContent)
-    // }
 </script>
 
 

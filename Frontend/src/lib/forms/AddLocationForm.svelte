@@ -25,15 +25,12 @@
         <p class="required-field">Address</p>
         <input type="text" placeholder="" bind:value={address}>
 
-        <label>
-            Associated Group
-            <input type="text" placeholder="" bind:value={associatedGroup}>
-        </label>
-
-        <label>
-            Access Poitns
-            <input type="text" placeholder="" bind:value={accessPoints}>
-        </label>
+        <label for="associated-groups">Associated Group</label>
+        <input name="associated-groups" type="text" placeholder="" bind:value={associatedGroup}>
+        
+        <label for="access-points">Access Points</label>
+        <input name="access-points" type="text" placeholder="" bind:value={accessPoints}>
+        
     </form>
 </div>
 

@@ -2,7 +2,6 @@
     export const header = 'Create a New User';
     export let closeModal; 
 
-
     function handleSubmit() {
         console.log("Submitted");
         alert("Form saved!");
@@ -28,7 +27,6 @@
     <form action="" method="POST" on:submit|preventDefault={handleSubmit} class="add-form" ><!--  prevent default is used to stop the page from refresh -->
         
 
-        <!-- Revisit labels, it seemed at default the label tags do not work with the required-field class -->
         <p class="required-field">Title</p>
         <input id={title} type="text" placeholder="" bind:value={title}>
         
@@ -44,29 +42,26 @@
         <input id={email} type="text" placeholder="" bind:value={email}>
         
         
-        <label>
-            Location(s)
-            <select bind:value={location}>
-                <option value="TEST 1">TEST</option>
-                <option value="TEST 2">TEST</option>
-                <option value="TEST 3">TEST</option>
-            </select>
-        </label>
+        <label for="locations">Location(s)</label>
+        <select name="locations" bind:value={location}>
+            <option value="TEST 1">TEST</option>
+            <option value="TEST 2">TEST</option>
+            <option value="TEST 3">TEST</option>
+        </select>
+        
         <small>
-            <a>Create New</a>
-            <!-- Ask about if these are intended to be hrefs or on:clicks -->
+            <button class="create-new">Create New</button>
         </small>
         
-        <label>
-            Group(s)
-            <select bind:value={group}>
+        <label for="groups">Group(s)</label>
+            <select name="groups" bind:value={group}>
                 <option value="TEST 1">TEST</option>
                 <option value="TEST 2">TEST</option>
                 <option value="TEST 3">TEST</option>
             </select>
-        </label>
+        
         <small>
-            <a>Create New</a>
+            <button class="create-new">Create New</button>
         </small>
         
         <div class="modal-buttons">
@@ -98,4 +93,5 @@
         margin: 0;
         margin-top: 1.5em
     }
+
 </style>

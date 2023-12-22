@@ -68,10 +68,7 @@ button {
 button:hover {
   border-color: #646cff;
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
+
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -87,7 +84,7 @@ button:focus-visible {
 }
 
 .required-field::after {
-  content: " *";
+  content: "*";
   color: red;
   display: inline;
 }
@@ -289,11 +286,7 @@ button:focus-visible {
 
 
 
-
-
-
 /* Modal */
-
 .modal-buttons{
   display: flex;
   flex-direction: row;
@@ -323,7 +316,6 @@ button:focus-visible {
 
 
 /* Forms */
-
 .add-form{
   margin: 0 2vw;
   display: flex;
@@ -354,4 +346,15 @@ width: 100%;
 display: flex;
 justify-content: flex-end;
 flex-wrap: nowrap;
+}
+
+.create-new, .create-new:active, .create-new:focus{
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  color: #477eff;
+  cursor: pointer;
+}
+.create-new:active{
+  color: #749effbc;
 }
