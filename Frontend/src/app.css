@@ -1,3 +1,4 @@
+/* Universal */
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -52,12 +53,6 @@ h1 {
   padding: 2em;
 }
 
-/* #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-} */
 
 button {
   border-radius: 8px;
@@ -73,10 +68,7 @@ button {
 button:hover {
   border-color: #646cff;
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
+
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -91,8 +83,13 @@ button:focus-visible {
   }
 }
 
-/* App */
+.required-field::after {
+  content: "*";
+  color: red;
+  display: inline;
+}
 
+/* App */
 .left-menu {
   width : 25%;
   display : flex;
@@ -289,11 +286,7 @@ button:focus-visible {
 
 
 
-
-
-
 /* Modal */
-
 .modal-buttons{
   display: flex;
   flex-direction: row;
@@ -305,12 +298,15 @@ button:focus-visible {
   color: white;
 }
 .modal-buttons .close{
-  background-color: #e3e3e6;
+  background-color:  #d5d5d5;
   color: black;
 }
 .modal-buttons button {
-  display: block;
-  margin-left: 2em;
+  height: 4vh;
+  margin-left: 1vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .modal-x{
@@ -320,7 +316,6 @@ button:focus-visible {
 
 
 /* Forms */
-
 .add-form{
   margin: 0 2vw;
   display: flex;
@@ -351,4 +346,15 @@ width: 100%;
 display: flex;
 justify-content: flex-end;
 flex-wrap: nowrap;
+}
+
+.create-new, .create-new:active, .create-new:focus{
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  color: #477eff;
+  cursor: pointer;
+}
+.create-new:active{
+  color: #749effbc;
 }
