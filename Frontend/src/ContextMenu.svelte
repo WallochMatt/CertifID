@@ -19,13 +19,11 @@
             'name': 'editItem',
             'onClick': editItem,
             'displayText': "Edit",
-            'icon': 'font awesome'
         },
         {
             'name': 'duplicateItem',
             'onClick': dupeItem,
             'displayText': "Duplicate",
-            'icon': 'font awesome'
         },
         // {
         //     'name': 'hr',   
@@ -34,7 +32,6 @@
             'name': 'trash',
             'onClick': removeItem,
             'displayText': "Remove",
-            'icon': 'font awesome'
         },
     ];
 </script>
