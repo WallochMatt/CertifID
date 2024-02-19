@@ -1,17 +1,11 @@
 <script>
     import PageHeader from "../PageHeader.svelte";
     import ContextMenu from "../../ContextMenu.svelte";
-
+    export let groups;
     export let showModal = false;
 
 
-    let groups = [{
-        "name" : "Web Application Team",
-    }, 
-    {
-        "name" : "Security"
-    }
-    ];
+    
 
     let contextMenuX = 0;
     let contextMenuY = 0;
@@ -33,7 +27,7 @@
     <table class="data-table">
         <thead>
             <tr>
-                <th>
+                <th class="checkbox-spacer">
                     <input type="checkbox" /> 
                 </th>
                 <th>Group Name({groups.length})</th>
@@ -47,12 +41,10 @@
         <tbody>
             {#each groups as group, index}
                 <tr class="listed-item" on:contextmenu={(event) => handleRightClick(event, group)}> 
-                    <td>
+                    <td class="checkbox-spacer">
                         <input type="checkbox" />
                     </td>
-                    <td style="display: inline-flex;">
-                        {group.name}
-                    </td>
+                    <td>{group.name}</td>
                     <td></td>
                     <td></td>
                     <td></td>

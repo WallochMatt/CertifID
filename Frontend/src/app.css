@@ -145,6 +145,25 @@ button:hover {
 
 
 /* All pages */
+.checkbox-spacer{
+  width: 5%;
+}
+
+.listed-item:hover{
+  background-color: #d1d1d1;
+}
+
+.list-more-options{
+  height: 2vw;
+  width: 1vw;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  border-radius: 30px;
+  margin: 2vw;
+  background-color: #969696;
+}
+
 .page-legend{
   color: black;
   padding: 1vh 2vw;
@@ -198,36 +217,17 @@ button:hover {
   color: white
 }
 
-.profile{
-  width: 2.5vw;
-  height: 2.5vw;
-  border-radius: 30px;
-  margin-right: 1vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
 
 
 /* User Page */
-.list-more-options{
-  height: 2vw;
-  width: 1vw;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  border-radius: 30px;
-  margin: 2vw;
-  background-color: #969696;
-}
+
 
 .hidden-div{
   padding: 1vw;
 }
 
-.listed-item:hover{
-  background-color: #d1d1d1;
-}
+
 
 .user-data{
   width: 100%;

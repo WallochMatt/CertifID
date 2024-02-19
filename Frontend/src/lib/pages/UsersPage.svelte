@@ -1,31 +1,29 @@
-<!-- Users need: last name, firstname, location group, title -->
 
 <script>
     import ContextMenu from "../../ContextMenu.svelte";
-
-    import Modal from "../../Modal.svelte";
-    export let showModal; 
-
-
     import PageHeader from "../PageHeader.svelte";
-
+    export let groups;
+    export let locations;
+    export let showModal; 
 
     // api call? users will become a request -- title, group and location will likely take a numbered key
     let users = [{
         "firstName" : "Chad",
         "lastName" : "Gouin",
-        "location" : "Hales Corners",
-        "group" : 1,
-        "title" : "Technician",
-        "image" : null,
+        "email" : "chad.gouin@certif.id",
+        "location" : "Hales Corners, WI",
+        "group" : groups[1].name, //The group's title instead
+        "title" : "Security Specialist",
+    
     }, 
     {
         "firstName" : "Chris",
         "lastName" : "Haliga",
-        "location" : "Milwaukee",
-        "group" : 1,
+        "email" : "chris.haliga@certif.id",
+        "location" : "Milwaukee, WI",
+        "group" : groups[0].name,
         "title" : "Software Engineer II",
-        "image" : null,
+    
     }
     ];
 
@@ -54,12 +52,12 @@
     <table class="data-table">
         <thead>
             <tr>
-                <th>
+                <th class="checkbox-spacer">
                     <input type="checkbox" /> <!--bind to all users? -->
                 </th>
                 <th>Users({users.length})</th>
-                <th>Locations()</th>
-                <th>Groups()</th>
+                <th>Location(s)</th>
+                <th>Group(s)</th>
                 <th>Title</th>
                 <th></th>
             </tr>
@@ -68,21 +66,18 @@
         <tbody>
             {#each users as user, index}
                 <tr class="listed-item" on:contextmenu={(event) => handleRightClick(event, user)}> 
-                    <td>
+                    <td class="checkbox-spacer">
                         <input type="checkbox" /> <!--bind to user? -->
                     </td>
-                    <td style="display: inline-flex;">
-
+                    <td class="profile-block">
                         <!-- Come back to this with actual images -->
                         <button type="button" class="profile" style="background-color: {colors[index]}">
-                            {#if user.image === null}
-                                {user.firstName[0]}{user.lastName[0]}
-                            {:else}
-                                <img src="-{user.image}" alt="-{user.firstName}'s Profile Picture"/>
-                            {/if}
+                            {user.firstName[0]}{user.lastName[0]}
                         </button>
-
-                        <p>{user.lastName} , {user.firstName}</p>
+                        <div class="name-email-block">
+                            <p>{user.lastName} , {user.firstName}</p>
+                            <p>{user.email}</p>
+                        </div>
                     </td>
                     <td>{user.location}</td>
                     <td>{user.group}</td>
@@ -100,3 +95,23 @@
 </main>
 
 
+<style>
+    .name-email-block p{
+        margin: .5em;
+    }
+
+    .profile-block{
+        display: flex;
+        align-items: center;
+    }
+
+    .profile{
+        width: 2.5vw;
+        height: 2.5vw;
+        border-radius: 30px;
+        margin-right: 1vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>

@@ -30,13 +30,45 @@
 
 
   // Users should have a picture property, defaulted to using their initials?
-  let currentUser = {
-        "firstName" : "Matthew",
-        "lastName" : "Walloch",
-        "location" : "South Milwaukee",
-        "group" : 2,
-        "title" : "Software Engineer",
-    };
+    let currentUser = {
+          "firstName" : "Matthew",
+          "lastName" : "Walloch",
+          "location" : "South Milwaukee",
+          "group" : 2,
+          "title" : "Software Engineer",
+      };
+
+    let groups = [{
+        "name" : "Web Application Team",
+        "location" : ""
+    }, 
+    {
+        "name" : "Security",
+        "location" : ""
+    },
+    {
+        "name" : "Maintenence",
+        "location" : ""
+    }
+    ];
+
+    let locations = [{
+        "city" : "Hales Corners",
+        "state" : "WI",
+        "address" : " 333 Saint Street",
+        "zip" : "53130",
+        "associatedGroup" : [groups[0]], //refer to a specific group's name or if multiple groups, print "Multiple Groups"
+        "accessPoints" : 2, //list of Entrance objects, has 1 associateGroup
+    }, 
+    {
+        "city" : "Milwaukee",
+        "state" : "WI",
+        "address" : " 777 E Wisconsin Ave",
+        "zip" : "53202",
+        "associatedGroup" : [groups[0], groups[1]],
+        "accessPoints" : 5, 
+    }
+    ];
 </script>
 
 
@@ -62,7 +94,7 @@
   
   <!-- RIGHT MAIN PAGE -->
   <div class="manage">
-      <svelte:component this={pages[selectedManager]} />
+      <svelte:component this={pages[selectedManager]} {groups} {locations}/>
   </div>
 </main>
 

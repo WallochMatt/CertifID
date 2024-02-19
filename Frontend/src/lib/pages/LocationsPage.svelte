@@ -1,18 +1,10 @@
 <script>
     import ContextMenu from "../../ContextMenu.svelte";
     import PageHeader from "../PageHeader.svelte";
-
+    export let groups;
+    export let locations;
     export let showModal = false;
 
-    // api call? users will become a request -- title, group and location will likely take a numbered key
-    let locations = [{
-        "city" : "Milwaukee",
-        "state" : "WI",
-        "address" : " 777 E Wisconsin Ave, Milwauke, WI 53202",
-        "associatedGroup" : "Multiple(PlaceHold)",
-        "accessPoints" : 5, //list of Entrance objects, has 1 associateGroup
-    }, 
-    ];
 
     let colors = ["red", "blue", "green", "pink"];
     // ^Placeholder data to be changed with backend
@@ -30,6 +22,7 @@
         selectedItem = item;
         isContextMenuVisible = true;
     };
+
 </script>
 
 <main>
@@ -38,13 +31,13 @@
     <table class="data-table">
         <thead>
             <tr>
-                <th>
+                <th class="checkbox-spacer">
                     <input type="checkbox" /> 
                 </th>
                 <th>Location({locations.length})</th>
                 <th>Address</th>
-                <th>Associated Group</th>
                 <th>Access Points</th>
+                <th>Associated Group(s)</th>
                 <th></th>
             </tr>
         </thead>
@@ -52,13 +45,24 @@
         <tbody>
             {#each locations as location, index}
                 <tr class="listed-item" on:contextmenu={(event) => handleRightClick(event, location)}> 
-                    <td>
+                    <td class="checkbox-spacer">
                         <input type="checkbox" />
                     </td>
                     <td>{location.city}, {location.state}</td>
                     <td>{location.address}</td>
-                    <td>{location.associatedGroup}</td>
                     <td>{location.accessPoints}</td>
+                    <td>
+                        {#if location.associatedGroup.length > 1}
+                            Multiple Groups
+                        {:else}
+                            {location.associatedGroup[0].name}
+                        {/if}   
+                    </td>
+                    <td>
+                        {#if location.associatedGroup.length > 1}
+                            <button>drp</button>
+                        {/if} 
+                    </td>
                     <td class="final-col">
                         <button type="button" class="list-more-options">...</button>
                     </td>
