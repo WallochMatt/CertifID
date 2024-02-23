@@ -38,36 +38,76 @@
           "title" : "Software Engineer",
       };
 
-    let groups = [{
+    let groups = [
+      {
         "name" : "Web Application Team",
         "location" : ""
-    }, 
-    {
-        "name" : "Security",
-        "location" : ""
-    },
-    {
-        "name" : "Maintenence",
-        "location" : ""
-    }
+      }, 
+      {
+          "name" : "Security",
+          "location" : ""
+      },
+      {
+          "name" : "Maintenence",
+          "location" : ""
+      }
     ];
 
-    let locations = [{
+    let locations = [
+      {
+          // "expanded" : false,
+          "id" : 1,
+          "city" : "Milwaukee",
+          "state" : "WI",
+          "address" : " 777 E Wisconsin Ave",
+          "zip" : "53202",
+          // "associatedGroup" : [groups[0], groups[1]],
+          "accessPoints" : [
+            {
+              "entrance" : "Main Entrance",
+              "group" : "Web Applications Team",
+            },
+            {
+              "entrance" : "Back Entrance",
+              "group" : "Maintenance",
+            }
+          ], 
+      },
+      {
+          "id" : 2,
+          // "expanded" : false,
+          "city" : "Madison",
+          "state" : "WI",
+          "address" : " 999 N Wesker Ave",
+          "zip" : "53202",
+          // "associatedGroup" : [groups[0], groups[1]],
+          "accessPoints" : [
+            {
+              "entrance" : "Main Entrance",
+              "group" : "Web Applications Team",
+            },
+            {
+              "entrance" : "Back Entrance",
+              "group" : "Maintenance",
+            }
+          ], 
+      },
+      {
+        "id" : 3,
+        // "expanded" : false,
         "city" : "Hales Corners",
         "state" : "WI",
         "address" : " 333 Saint Street",
         "zip" : "53130",
-        "associatedGroup" : [groups[0]], //refer to a specific group's name or if multiple groups, print "Multiple Groups"
-        "accessPoints" : 2, //list of Entrance objects, has 1 associateGroup
-    }, 
-    {
-        "city" : "Milwaukee",
-        "state" : "WI",
-        "address" : " 777 E Wisconsin Ave",
-        "zip" : "53202",
-        "associatedGroup" : [groups[0], groups[1]],
-        "accessPoints" : 5, 
-    }
+        // "associatedGroup" : [groups[0]], 
+        //refer to a specific group's name or if multiple groups, print "Multiple Groups"
+        "accessPoints" : [
+          {
+            "entrance" : "Main Entrance",
+            "group" : "Security",
+          }, //list of Entrance objects, has 1 associateGroup
+        ]
+      }
     ];
 </script>
 

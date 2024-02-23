@@ -9,6 +9,8 @@
     let colors = ["red", "blue", "green", "pink"];
     // ^Placeholder data to be changed with backend
 
+    let showMinis = false;
+
 
     let contextMenuX = 0;
     let contextMenuY = 0;
@@ -21,6 +23,11 @@
         contextMenuY = event.clientY;
         selectedItem = item;
         isContextMenuVisible = true;
+    };
+
+    function toggleMinis(){
+        showMinis = !showMinis;
+        console.log();
     };
 
 </script>
@@ -36,37 +43,48 @@
                 </th>
                 <th>Location({locations.length})</th>
                 <th>Address</th>
-                <th>Access Points</th>
                 <th>Associated Group(s)</th>
                 <th></th>
             </tr>
         </thead>
 
         <tbody>
-            {#each locations as location, index}
+            {#each locations as location}
+            {@const allEntrances = location.accessPoints }
                 <tr class="listed-item" on:contextmenu={(event) => handleRightClick(event, location)}> 
                     <td class="checkbox-spacer">
                         <input type="checkbox" />
                     </td>
                     <td>{location.city}, {location.state}</td>
                     <td>{location.address}</td>
-                    <td>{location.accessPoints}</td>
                     <td>
-                        {#if location.associatedGroup.length > 1}
+                        {#if location.accessPoints.length > 1}
                             Multiple Groups
                         {:else}
-                            {location.associatedGroup[0].name}
+                            {location.accessPoints[0].group}
                         {/if}   
                     </td>
                     <td>
-                        {#if location.associatedGroup.length > 1}
-                            <button>drp</button>
+                        {#if location.accessPoints.length > 1}
+                            <button on:click={() => toggleMinis()}>drp</button>
                         {/if} 
                     </td>
                     <td class="final-col">
                         <button type="button" class="list-more-options">...</button>
                     </td>
                 </tr>
+                {#if showMinis == true}
+                    {#each allEntrances as entrance}
+                        <tr>
+                            <td class="checkbox-spacer">
+                                <input type="checkbox" /> 
+                            </td>
+                            <td>{entrance.entrance}</td>
+                            <td>{location.address}</td>
+                            <td>{entrance.group}</td>
+                        </tr>
+                    {/each}
+                {/if}
             {/each}
             {#if isContextMenuVisible}
                 <ContextMenu bind:isVisible={isContextMenuVisible} x={contextMenuX} y={contextMenuY} item={selectedItem} />
