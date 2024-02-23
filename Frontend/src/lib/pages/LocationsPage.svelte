@@ -1,6 +1,8 @@
 <script>
     import ContextMenu from "../../ContextMenu.svelte";
     import PageHeader from "../PageHeader.svelte";
+    import ExpandableRow from "../ExpandableRow.svelte";
+
     export let groups;
     export let locations;
     export let showModal = false;
@@ -50,41 +52,10 @@
 
         <tbody>
             {#each locations as location}
-            {@const allEntrances = location.accessPoints }
-                <tr class="listed-item" on:contextmenu={(event) => handleRightClick(event, location)}> 
-                    <td class="checkbox-spacer">
-                        <input type="checkbox" />
-                    </td>
-                    <td>{location.city}, {location.state}</td>
-                    <td>{location.address}</td>
-                    <td>
-                        {#if location.accessPoints.length > 1}
-                            Multiple Groups
-                        {:else}
-                            {location.accessPoints[0].group}
-                        {/if}   
-                    </td>
-                    <td>
-                        {#if location.accessPoints.length > 1}
-                            <button on:click={() => toggleMinis()}>drp</button>
-                        {/if} 
-                    </td>
-                    <td class="final-col">
-                        <button type="button" class="list-more-options">...</button>
-                    </td>
-                </tr>
-                {#if showMinis == true}
-                    {#each allEntrances as entrance}
-                        <tr>
-                            <td class="checkbox-spacer">
-                                <input type="checkbox" /> 
-                            </td>
-                            <td>{entrance.entrance}</td>
-                            <td>{location.address}</td>
-                            <td>{entrance.group}</td>
-                        </tr>
-                    {/each}
-                {/if}
+                <ExpandableRow 
+                    city={location.city} state={location.state} address={location.address} zip={location.zip} 
+                    children={location.accessPoints}
+                    bind:isChecked={location.checked}/>
             {/each}
             {#if isContextMenuVisible}
                 <ContextMenu bind:isVisible={isContextMenuVisible} x={contextMenuX} y={contextMenuY} item={selectedItem} />

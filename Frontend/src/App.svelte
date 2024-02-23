@@ -61,6 +61,7 @@
           "state" : "WI",
           "address" : " 777 E Wisconsin Ave",
           "zip" : "53202",
+          "checked": false,
           // "associatedGroup" : [groups[0], groups[1]],
           "accessPoints" : [
             {
