@@ -1,6 +1,6 @@
 <script>
-    import PageHeader from "../PageHeader.svelte";
-    import ContextMenu from "../../ContextMenu.svelte";
+    import PageHeader from "../components/PageHeader.svelte";
+    import ContextMenu from "../components/ContextMenu.svelte";
     export let groups;
     export let showModal = false;
 

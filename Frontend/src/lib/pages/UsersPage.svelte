@@ -1,7 +1,8 @@
 
 <script>
-    import ContextMenu from "../../ContextMenu.svelte";
-    import PageHeader from "../PageHeader.svelte";
+    import TableMaker from "../components/TableMaker.svelte";
+    import PageHeader from "../components/PageHeader.svelte";
+    import ContextMenu from "../components/ContextMenu.svelte";
     export let groups;
     export let locations;
     export let showModal; 
@@ -31,7 +32,6 @@
     let colors = ["red", "blue", "green", "pink"];
     // ^Placeholder data to be changed with backend
 
-
     let contextMenuX = 0;
     let contextMenuY = 0;
     let isContextMenuVisible = false;
@@ -44,6 +44,7 @@
         selectedItem = item;
         isContextMenuVisible = true;
     };
+
 </script>
 
 
@@ -93,6 +94,7 @@
             {/if}
         </tbody>
     </table>
+
 </main>
 
 

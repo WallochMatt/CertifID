@@ -79,7 +79,7 @@
           "city" : "Madison",
           "state" : "WI",
           "address" : " 999 N Wesker Ave",
-          "zip" : "53202",
+          "zip" : "86753",
           // "associatedGroup" : [groups[0], groups[1]],
           "accessPoints" : [
             {

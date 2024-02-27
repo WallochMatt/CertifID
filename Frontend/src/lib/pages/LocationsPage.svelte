@@ -1,15 +1,12 @@
 <script>
-    import ContextMenu from "../../ContextMenu.svelte";
-    import PageHeader from "../PageHeader.svelte";
+    import PageHeader from "../components/PageHeader.svelte";
+    import TableMaker from "../components/TableMaker.svelte";
+    import ExpandableRow from "../components/ExpandableRow.svelte";
+    import ContextMenu from "../components/ContextMenu.svelte";
+
     export let groups;
     export let locations;
     export let showModal = false;
-
-
-    let colors = ["red", "blue", "green", "pink"];
-    // ^Placeholder data to be changed with backend
-
-    let showMinis = false;
 
 
     let contextMenuX = 0;
@@ -25,15 +22,11 @@
         isContextMenuVisible = true;
     };
 
-    function toggleMinis(){
-        showMinis = !showMinis;
-        console.log();
-    };
-
 </script>
 
 <main>
     <PageHeader currentPage = {"Locations & Access Points"}/>
+
     
     <table class="data-table">
         <thead>
@@ -50,45 +43,16 @@
 
         <tbody>
             {#each locations as location}
-            {@const allEntrances = location.accessPoints }
-                <tr class="listed-item" on:contextmenu={(event) => handleRightClick(event, location)}> 
-                    <td class="checkbox-spacer">
-                        <input type="checkbox" />
-                    </td>
-                    <td>{location.city}, {location.state}</td>
-                    <td>{location.address}</td>
-                    <td>
-                        {#if location.accessPoints.length > 1}
-                            Multiple Groups
-                        {:else}
-                            {location.accessPoints[0].group}
-                        {/if}   
-                    </td>
-                    <td>
-                        {#if location.accessPoints.length > 1}
-                            <button on:click={() => toggleMinis()}>drp</button>
-                        {/if} 
-                    </td>
-                    <td class="final-col">
-                        <button type="button" class="list-more-options">...</button>
-                    </td>
-                </tr>
-                {#if showMinis == true}
-                    {#each allEntrances as entrance}
-                        <tr>
-                            <td class="checkbox-spacer">
-                                <input type="checkbox" /> 
-                            </td>
-                            <td>{entrance.entrance}</td>
-                            <td>{location.address}</td>
-                            <td>{entrance.group}</td>
-                        </tr>
-                    {/each}
-                {/if}
+                <ExpandableRow
+                    city={location.city} state={location.state} address={location.address} zip={location.zip}
+                    accessPoints={location.accessPoints}
+                    bind:isChecked={location.checked}
+                />
             {/each}
-            {#if isContextMenuVisible}
-                <ContextMenu bind:isVisible={isContextMenuVisible} x={contextMenuX} y={contextMenuY} item={selectedItem} />
-            {/if}
         </tbody>
     </table>
+
+    {#if isContextMenuVisible}
+        <ContextMenu bind:isVisible={isContextMenuVisible} x={contextMenuX} y={contextMenuY} item={selectedItem} />
+    {/if}
 </main>
