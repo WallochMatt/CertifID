@@ -62,3 +62,15 @@ NOTE: This component is inoperable but will remain until deemed entirely unneede
 {#if isContextMenuVisible}
     <ContextMenu bind:isVisible={isContextMenuVisible} x={contextMenuX} y={contextMenuY} item={selectedItem} />
 {/if}
+
+
+
+
+
+
+
+
+
+
+
+

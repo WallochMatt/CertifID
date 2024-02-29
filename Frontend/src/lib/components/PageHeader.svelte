@@ -30,3 +30,15 @@
 
 <Modal bind:showModal={showModal} selectedContent={currentPage}/>
 
+<style>
+    .more-actions{
+        background-color: white;
+        color: black;
+        border: 1px solid black;
+    }
+
+    .create-button{
+        background-color: #9c8ecf;
+        color: white
+    }
+</style>

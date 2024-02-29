@@ -8,20 +8,6 @@
     export let locations;
     export let showModal = false;
 
-
-    let contextMenuX = 0;
-    let contextMenuY = 0;
-    let isContextMenuVisible = false;
-    let selectedItem;
-
-    function handleRightClick(event, item) {
-        event.preventDefault();
-        contextMenuX = event.clientX;
-        contextMenuY = event.clientY;
-        selectedItem = item;
-        isContextMenuVisible = true;
-    };
-
 </script>
 
 <main>
@@ -43,6 +29,7 @@
 
         <tbody>
             {#each locations as location}
+
                 <ExpandableRow
                     city={location.city} state={location.state} address={location.address} zip={location.zip}
                     accessPoints={location.accessPoints}
@@ -52,7 +39,6 @@
         </tbody>
     </table>
 
-    {#if isContextMenuVisible}
-        <ContextMenu bind:isVisible={isContextMenuVisible} x={contextMenuX} y={contextMenuY} item={selectedItem} />
-    {/if}
+
 </main>
+
