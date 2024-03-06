@@ -48,7 +48,7 @@
             {accessPoints[0].group}
         {/if}
     </td>
-    <td>
+    <td class="arrow">
         <button class="arrow-down"  on:click={dropdown}></button>
     </td>
     <td class="final-col">
@@ -59,25 +59,25 @@
 
 {#if isExpanded}
 
-    {#each accessPoints as accessPoint}
-        <tr class="expanded-location" on:contextmenu={(event) => handleRightClick(event, accessPoint)}>
-            <td class="checkbox-spacer">
-                <input type="checkbox" /> 
-            </td>
-            <td>{accessPoint.entrance}</td>
-            <td>        
-                <p>
-                    {address} 
-                </p>
-                <p>
-                    {city}, {state} {zip}
-                </p>
-            </td>
-            <td>{accessPoint.group}</td>
-            <td></td>
-            <td></td>
-        </tr>
-    {/each}
+{#each accessPoints as accessPoint}
+    <tr class="expanded-location listed-item" on:contextmenu={(event) => handleRightClick(event, accessPoint)}>
+        <td class="checkbox-spacer">
+            <input type="checkbox" /> 
+        </td>
+        <td class="indent">{accessPoint.entrance}</td>
+        <td class="fade">        
+            <p>
+                {address} 
+            </p>
+            <p>
+                {city}, {state} {zip}
+            </p>
+        </td>
+        <td>{accessPoint.group}</td>
+        <td></td>
+        <td></td>
+    </tr>
+{/each}
 
 {/if}
 
@@ -87,20 +87,43 @@
 
 
 <style>
+    .arrow{
+        text-align: center;
+    }
+
     .arrow-down {
-        width: 0; 
-        height: 0; 
-        border-left: 20px solid transparent;
-        border-right: 20px solid transparent;
-        border-top: 20px solid #f00;
+        background-color: transparent;
+        padding: 0;
+        width: .75vw;
+        height: .75vw;
+        border-left: .75vw solid transparent;
+        border-right: .75vw solid transparent;
+        border-top: .75vw solid #363c3e;
+        cursor: pointer;
+    }
+
+    .arrow-down:hover{
+        border-color: transparent;
+        background-color: transparent;
+        padding: 0;
+        width: .75vw;
+        height: .75vw;
+        border-left: .75vw solid transparent;
+        border-right: .75vw solid transparent;
+        border-top: .75vw solid #9c8ecf;
         cursor: pointer;
     }
 
     .expanded-location {
         width: 100%;
     }
-    .expanded-location:hover{
-        cursor: pointer;
-        background-color: #f00;
+
+    .indent{
+        padding-left: 2vw;
     }
+
+    .fade{
+        opacity: 40%;
+    }
+
 </style>

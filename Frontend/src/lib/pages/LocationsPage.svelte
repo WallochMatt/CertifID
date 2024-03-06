@@ -20,10 +20,11 @@
                 <th class="checkbox-spacer">
                     <input type="checkbox" /> 
                 </th>
-                <th>Location({locations.length})</th>
-                <th>Address</th>
-                <th>Associated Group(s)</th>
-                <th></th>
+                <th class="column-sizer">Location({locations.length})</th>
+                <th class="column-sizer">Address</th>
+                <th class="column-sizer">Associated Group(s)</th>
+                <th class="column-sizer"></th>
+                <th class="checkbox-spacer"></th>
             </tr>
         </thead>
 
@@ -42,3 +43,8 @@
 
 </main>
 
+<style>
+    .column-sizer{
+        width: 20%;
+    }
+</style>
