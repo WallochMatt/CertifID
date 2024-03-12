@@ -9,9 +9,18 @@
 
     let isExpanded = false;
 
+
+    var arrow = "arrow-down"
+
     export function dropdown(){
         isExpanded = !isExpanded;
-    }
+            if(arrow == "arrow-down"){
+                arrow = "arrow-up"
+            }
+            else{
+                arrow = "arrow-down"
+            }
+    };
 
     let contextMenuX = 0;
     let contextMenuY = 0;
@@ -49,7 +58,7 @@
         {/if}
     </td>
     <td class="arrow">
-        <button class="arrow-down"  on:click={dropdown}></button>
+        <button class={arrow}  on:click={dropdown}></button>
     </td>
     <td class="final-col">
         <button type="button" class="list-more-options">...</button>
@@ -113,6 +122,38 @@
         border-top: .75vw solid #9c8ecf;
         cursor: pointer;
     }
+
+
+    .arrow-up {
+        background-color: transparent;
+        padding: 0;
+        width: .75vw;
+        height: .75vw;
+        border-left: .75vw solid transparent;
+        border-right: .75vw solid transparent;
+        border-bottom: .75vw solid #363c3e;
+        cursor: pointer;
+    }
+
+    .arrow-up:hover{
+        border-color: transparent;
+        background-color: transparent;
+        padding: 0;
+        width: .75vw;
+        height: .75vw;
+        border-left: .75vw solid transparent;
+        border-right: .75vw solid transparent;
+        border-bottom: .75vw solid #9c8ecf;
+        cursor: pointer;
+    }
+
+
+
+
+
+
+
+
 
     .expanded-location {
         width: 100%;
