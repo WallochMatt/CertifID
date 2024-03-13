@@ -125,24 +125,29 @@ button:hover {
 
 
 /* All pages */
+.column-sizer{
+  width: 20%;
+}
+
 .checkbox-spacer{
   width: 10%;
 }
 
 .listed-item:hover{
-  background-color: #d1d1d1;
+  background-color: #e6e6e6;;
+  /* background-color: #d1d1d1; */
 }
 
-.list-more-options{
+/* .list-more-options{
   height: 2vw;
-  width: 1vw;
+  width: 2vw;
   display: flex;
   justify-content: center;
   align-items: flex-end;
   border-radius: 30px;
   margin: 2vw;
   background-color: #969696;
-}
+} */
 
 .page-legend{
   color: black;

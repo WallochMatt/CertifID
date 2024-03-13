@@ -1,8 +1,9 @@
 
 <script>
-    import TableMaker from "../components/TableMaker.svelte";
+    import TableMaker from "../components/EllipsisButton.svelte";
     import PageHeader from "../components/PageHeader.svelte";
     import ContextMenu from "../components/ContextMenu.svelte";
+  import EllipsisButton from "../components/EllipsisButton.svelte";
     export let groups;
     export let locations;
     export let showModal; 
@@ -57,11 +58,11 @@
                 <th class="checkbox-spacer">
                     <input type="checkbox" /> <!--bind to all users? -->
                 </th>
-                <th>Users({users.length})</th>
-                <th>Location(s)</th>
-                <th>Group(s)</th>
-                <th>Title</th>
-                <th></th>
+                <th class="column-sizer">Users({users.length})</th>
+                <th class="column-sizer">Location(s)</th>
+                <th class="column-sizer">Group(s)</th>
+                <th class="column-sizer">Title</th>
+                <th class="checkbox-spacer"></th>
             </tr>
         </thead>
 
@@ -85,7 +86,7 @@
                     <td>{user.group}</td>
                     <td>{user.title}</td>
                     <td class="final-col">
-                        <button type="button" class="list-more-options">...</button>
+                        <EllipsisButton />
                     </td>
                 </tr>
             {/each}

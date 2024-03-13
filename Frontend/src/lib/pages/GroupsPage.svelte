@@ -1,6 +1,7 @@
 <script>
     import PageHeader from "../components/PageHeader.svelte";
     import ContextMenu from "../components/ContextMenu.svelte";
+  import EllipsisButton from "../components/EllipsisButton.svelte";
     export let groups;
     export let showModal = false;
 
@@ -30,13 +31,14 @@
                 <th class="checkbox-spacer">
                     <input type="checkbox" /> 
                 </th>
-                <th>Group Name({groups.length})</th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
+                <th class="column-sizer">Group({groups.length})</th>
+                <th class="column-sizer">Department</th>
+                <th class="column-sizer">Status</th>
+                <th class="column-sizer">Key Objective</th>
+                <th class="checkbox-spacer"></th>
             </tr>
         </thead>
+        <!-- Consider a button to send an email or message to all group members -->
 
         <tbody>
             {#each groups as group, index}
@@ -45,11 +47,11 @@
                         <input type="checkbox" />
                     </td>
                     <td>{group.name}</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{group.department}</td>
+                    <td>{group.status}</td>
+                    <td>{group.obj}</td>
                     <td class="final-col">
-                        <button type="button" class="list-more-options">...</button>
+                        <EllipsisButton />
                     </td>
                 </tr>
             {/each}

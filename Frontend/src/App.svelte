@@ -38,59 +38,65 @@
           "title" : "Software Engineer",
       };
 
-    let groups = [
+      let groups = [
       {
         "name" : "Web Application Team",
-        "location" : ""
+        "department" : "Software Development",
+        "status" : "Active",
+        "obj" : "Create and maintain buisness site",
       }, 
       {
-          "name" : "Security",
-          "location" : ""
-      },
+          "name" : "Security Education",
+          "department" : "Security",
+          "status" : "Active",
+          "obj" : "Train security personel",
+        },
       {
-          "name" : "Maintenence",
-          "location" : ""
+          "name" : "MKE Maintenence",
+          "department" : "Maintenence",
+          "status" : "Active",
+          "obj" : "Maintain facility functionality and hygiene",
       }
     ];
 
     let locations = [
       {
-          // "expanded" : false,
-          "id" : 1,
-          "city" : "Milwaukee",
-          "state" : "WI",
-          "address" : " 777 E Wisconsin Ave",
-          "zip" : "53202",
-          // "associatedGroup" : [groups[0], groups[1]],
-          "accessPoints" : [
-            {
-              "entrance" : "Main Entrance",
-              "group" : "Web Applications Team",
-            },
-            {
-              "entrance" : "Back Entrance",
-              "group" : "Maintenance",
-            }
-          ], 
+        // "expanded" : false,
+        "id" : 1,
+        "city" : "Milwaukee",
+        "state" : "WI",
+        "address" : " 777 E Wisconsin Ave",
+        "zip" : "53202",
+        // "associatedGroup" : [groups[0], groups[1]],
+        "accessPoints" : [
+          {
+            "entrance" : "Main Entrance",
+            "group" : groups[0].name,
+          },
+          {
+            "entrance" : "Back Entrance",
+            "group" : groups[2].name,
+          }
+        ], 
       },
       {
-          "id" : 2,
-          // "expanded" : false,
-          "city" : "Madison",
-          "state" : "WI",
-          "address" : " 999 N Wesker Ave",
-          "zip" : "86753",
-          // "associatedGroup" : [groups[0], groups[1]],
-          "accessPoints" : [
-            {
-              "entrance" : "Main Entrance",
-              "group" : "Web Applications Team",
-            },
-            {
-              "entrance" : "Back Entrance",
-              "group" : "Maintenance",
-            }
-          ], 
+        "id" : 2,
+        // "expanded" : false,
+        "city" : "Madison",
+        "state" : "WI",
+        "address" : " 999 N Wesker Ave",
+        "zip" : "86753",
+        // "associatedGroup" : [groups[0], groups[1]],
+        "accessPoints" : [
+          {
+            "entrance" : "Main Entrance",
+            "group" : "Web Applications Team",
+          },
+          {
+            "entrance" : "Back Entrance",
+            "group" : "Maintenance",
+          }
+        ], 
       },
       {
         "id" : 3,
@@ -109,11 +115,13 @@
         ]
       }
     ];
+
+
 </script>
 
 
 <main class="app-main">
-
+  
   <!-- SIDE MENU -->
   <div class="left-menu">
     <div class="brand">

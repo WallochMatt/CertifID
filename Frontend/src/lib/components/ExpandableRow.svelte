@@ -1,5 +1,6 @@
 <script>
     import ContextMenu from "./ContextMenu.svelte";
+  import EllipsisButton from "./EllipsisButton.svelte";
     export let city;
     export let state;
     export let address;
@@ -61,7 +62,7 @@
         <button class={arrow}  on:click={dropdown}></button>
     </td>
     <td class="final-col">
-        <button type="button" class="list-more-options">...</button>
+        <EllipsisButton />
     </td>
 </tr>
 

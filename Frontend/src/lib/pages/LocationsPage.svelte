@@ -1,6 +1,6 @@
 <script>
     import PageHeader from "../components/PageHeader.svelte";
-    import TableMaker from "../components/TableMaker.svelte";
+    import TableMaker from "../components/EllipsisButton.svelte";
     import ExpandableRow from "../components/ExpandableRow.svelte";
     import ContextMenu from "../components/ContextMenu.svelte";
 
@@ -44,7 +44,5 @@
 </main>
 
 <style>
-    .column-sizer{
-        width: 20%;
-    }
+
 </style>
