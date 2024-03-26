@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7urtGnpt1ULI28CCjfIMiss4gxf/bpvZTmFETXnI7Hffs8/HCxTF2xtgGCTjbkyfFpj1vrlkJFN6Pc+GaFfW4g==",
+  "dgSpecHash": "3izK8AJen9VRwuJhvQQIUQ97YiUvueTGt4Dmo/N1B03iUsAjyz2lZiy/dOkjeX9Vz529EmxfPPjE5XgJBI229g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\skati\\Documents\\devcodecamp\\_Portfolio_\\CertifID\\CertifID.csproj",
+  "projectFilePath": "C:\\Users\\skati\\Documents\\CertifID-folder\\CertifID\\CertifID.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\skati\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.4\\microsoft.aspnet.webapi.client.5.2.4.nupkg.sha512",
     "C:\\Users\\skati\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.1.0\\microsoft.aspnetcore.authentication.abstractions.2.1.0.nupkg.sha512",

@@ -4,7 +4,7 @@
   "bindings": [
     {
       "type": "httpTrigger",
-      "route": "Function1/Run",
+      "route": "api/GetUsers",
       "methods": [
         "get"
       ],
@@ -14,5 +14,5 @@
   ],
   "disabled": false,
   "scriptFile": "../bin/CertifID.dll",
-  "entryPoint": "CertifID.Function1.Run"
+  "entryPoint": "CertifID.ApiEndpoints.GetUsers"
 }

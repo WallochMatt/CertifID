@@ -4,6 +4,8 @@
   import GroupsPage from './lib/pages/GroupsPage.svelte';
   import LocationsPage from './lib/pages/LocationsPage.svelte';
   import AdminSettingsPage from './lib/pages/AdminSettingsPage.svelte';
+  import { onMount } from 'svelte';
+  import { ApiService }  from "./services/ApiService"
 
 
   if(Appsettings.Built)
@@ -30,34 +32,10 @@
 
 
   // Users should have a picture property, defaulted to using their initials?
-    let currentUser = {
-          "firstName" : "Matthew",
-          "lastName" : "Walloch",
-          "location" : "South Milwaukee",
-          "group" : 2,
-          "title" : "Software Engineer",
-      };
+    let currentUser:any = {}
 
-      let groups = [
-      {
-        "name" : "Web Application Team",
-        "department" : "Software Development",
-        "status" : "Active",
-        "obj" : "Create and maintain buisness site",
-      }, 
-      {
-          "name" : "Security Education",
-          "department" : "Security",
-          "status" : "Active",
-          "obj" : "Train security personel",
-        },
-      {
-          "name" : "MKE Maintenence",
-          "department" : "Maintenence",
-          "status" : "Active",
-          "obj" : "Maintain facility functionality and hygiene",
-      }
-    ];
+    let groups:any = {}
+
 
     let locations = [
       {
@@ -116,6 +94,13 @@
       }
     ];
 
+    onMount(async () => {
+      let response = await ApiService.getRequest("GetUsers")
+      currentUser = response?.[0] ?? {}
+
+      response = await ApiService.getRequest("GetGroups")
+      groups = response?.[0] ?? {}
+    })
 
 </script>
 
@@ -139,7 +124,7 @@
     </div>
 
     <div>
-      <p>Matt Walloch</p>
+      <p>{currentUser.firstName}</p>
     </div>
   </div>
   
